@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แสดงข้อความ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .message {
+            font-size: 24px;
+            padding: 20px;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="message" id="message"></div>
+
+<script>
+    const messages = [
+        "ข้อความที่ 1",
+        "ข้อความที่ 2",
+        "ข้อความที่ 3",
+        "ข้อความที่ 4",
+        "ข้อความที่ 5",
+        "ข้อความที่ 6",
+        "ข้อความที่ 7",
+        "ข้อความที่ 8",
+        "ข้อความที่ 9",
+        "ข้อความที่ 10",
+        "ข้อความที่ 11",
+        "ข้อความที่ 12",
+        "ข้อความที่ 13",
+        "ข้อความที่ 14",
+        "ข้อความที่ 15",
+        "ข้อความที่ 16",
+        "ข้อความที่ 17",
+        "ข้อความที่ 18",
+        "ข้อความที่ 19",
+        "ข้อความที่ 20",
+    ];
+
+    // ดึงหมายเลขจาก Local Storage หรือกำหนดเป็น 0
+    let currentIndex = localStorage.getItem('currentIndex') || 0;
+
+    // แสดงข้อความตามหมายเลข
+    document.getElementById('message').textContent = messages[currentIndex];
+
+    // อัปเดตหมายเลขสำหรับการรีเฟรชหรือเปิดใหม่
+    currentIndex = (parseInt(currentIndex) + 1) % messages.length;
+    localStorage.setItem('currentIndex', currentIndex);
+</script>
+
+</body>
+</html>
